@@ -47,7 +47,6 @@
             this.functionTabCtrl = new System.Windows.Forms.TabControl();
             this.httpSettingTab = new System.Windows.Forms.TabPage();
             this.clearHeaderBtn = new System.Windows.Forms.Button();
-            this.requestTab = new System.Windows.Forms.TabPage();
             this.responseTab = new System.Windows.Forms.TabPage();
             this.httpRespHeaderTxt = new System.Windows.Forms.TextBox();
             this.httpRespHeaderLbl = new System.Windows.Forms.Label();
@@ -61,6 +60,8 @@
             // 
             // urlTxt
             // 
+            this.urlTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.urlTxt.AutoCompleteCustomSource.AddRange(new string[] {
             "localhost",
             "127.0.0.1"});
@@ -179,6 +180,8 @@
             // 
             // reqHeaderValTxt
             // 
+            this.reqHeaderValTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.reqHeaderValTxt.AutoCompleteCustomSource.AddRange(new string[] {
             "application/json",
             "application/json; charset=utf-8"});
@@ -191,6 +194,8 @@
             // 
             // headerGrdVw
             // 
+            this.headerGrdVw.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.headerGrdVw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.headerGrdVw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.headerGrdVw.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -257,6 +262,9 @@
             // 
             // httpBodyTxt
             // 
+            this.httpBodyTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.httpBodyTxt.Location = new System.Drawing.Point(8, 295);
             this.httpBodyTxt.Multiline = true;
             this.httpBodyTxt.Name = "httpBodyTxt";
@@ -274,8 +282,10 @@
             // 
             // functionTabCtrl
             // 
+            this.functionTabCtrl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.functionTabCtrl.Controls.Add(this.httpSettingTab);
-            this.functionTabCtrl.Controls.Add(this.requestTab);
             this.functionTabCtrl.Controls.Add(this.responseTab);
             this.functionTabCtrl.Location = new System.Drawing.Point(12, 12);
             this.functionTabCtrl.Name = "functionTabCtrl";
@@ -318,16 +328,6 @@
             this.clearHeaderBtn.UseVisualStyleBackColor = true;
             this.clearHeaderBtn.Click += new System.EventHandler(this.clearHeaderBtn_Click);
             // 
-            // requestTab
-            // 
-            this.requestTab.Location = new System.Drawing.Point(4, 22);
-            this.requestTab.Name = "requestTab";
-            this.requestTab.Padding = new System.Windows.Forms.Padding(3);
-            this.requestTab.Size = new System.Drawing.Size(811, 596);
-            this.requestTab.TabIndex = 1;
-            this.requestTab.Text = "Request";
-            this.requestTab.UseVisualStyleBackColor = true;
-            // 
             // responseTab
             // 
             this.responseTab.Controls.Add(this.httpRespHeaderTxt);
@@ -343,6 +343,8 @@
             // 
             // httpRespHeaderTxt
             // 
+            this.httpRespHeaderTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.httpRespHeaderTxt.Location = new System.Drawing.Point(5, 35);
             this.httpRespHeaderTxt.Multiline = true;
             this.httpRespHeaderTxt.Name = "httpRespHeaderTxt";
@@ -370,6 +372,9 @@
             // 
             // httpRespBodyTxt
             // 
+            this.httpRespBodyTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.httpRespBodyTxt.Location = new System.Drawing.Point(3, 215);
             this.httpRespBodyTxt.Multiline = true;
             this.httpRespBodyTxt.Name = "httpRespBodyTxt";
@@ -415,7 +420,6 @@
         private System.Windows.Forms.Label httpBodyLbl;
         private System.Windows.Forms.TabControl functionTabCtrl;
         private System.Windows.Forms.TabPage httpSettingTab;
-        private System.Windows.Forms.TabPage requestTab;
         private System.Windows.Forms.TabPage responseTab;
         private System.Windows.Forms.TextBox httpRespBodyTxt;
         private System.Windows.Forms.Label httpRespBodyLbl;

@@ -20,6 +20,7 @@ namespace HttpQlight
 
         private void sendRqBtn_Click(object sender, EventArgs e)
         {
+            httpRespHeaderTxt.Clear();
             if (string.IsNullOrEmpty(schemaCmb.Text))
             {
                 MessageBox.Show("請選擇要使用 [ Http ] 或是 [ Https ] !");
@@ -31,7 +32,15 @@ namespace HttpQlight
             }
 
             HttpSender http = new HttpSender();
-            http.SetUrl(string.Format("{0}{1}", schemaCmb.Text.Trim(), urlTxt.Text.Trim()));
+            http.SetRequestEncoding(Encoding.UTF8);
+            try
+            {
+                http.SetUrl(string.Format("{0}{1}", schemaCmb.Text.Trim(), urlTxt.Text.Trim()));
+            }
+            catch (Exception ecp)
+            {
+                MessageBox.Show("請檢查Url是否有填寫或是否填寫正確!");
+            }
             HttpHeaderList headers = new HttpHeaderList();
             foreach (DataGridViewRow r in headerGrdVw.Rows)
             {
@@ -40,7 +49,8 @@ namespace HttpQlight
                     headers.AddHeader(r.Cells[0].Value.ToString(), r.Cells[1].Value.ToString());
                 }
             }
-            string responseBody = http.SendRequest(methodCmb.Text, httpBodyTxt.Text.Trim(), headers);
+
+            ResponseResult result = http.SendRequest(http.ParseHttpMethod(methodCmb.Text.ToUpper()), httpBodyTxt.Text.Trim(), headers);
 
             HttpHeaderList respHeaders = http.GetResponseHeaders();
             if (respHeaders != null)
@@ -52,7 +62,7 @@ namespace HttpQlight
                         string.Format("{0} : {1}\r\n", h.Key, h.Value));
                 }
             }
-            httpRespBodyTxt.Text = responseBody;
+            httpRespBodyTxt.Text = result.ResponseBody;
         }
 
         private void addHeaderBtn_Click(object sender, EventArgs e)
@@ -109,7 +119,5 @@ namespace HttpQlight
 
             httpBodyTxt.Enabled = methodCmb.Text.Trim() == "GET" ? false : true;
         }
-    }
-
-    
+    }    
 }
